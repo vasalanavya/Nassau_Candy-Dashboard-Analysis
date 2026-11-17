@@ -479,7 +479,6 @@ fig_kpi3 = px.line(
 st.plotly_chart(
     fig_kpi3,
     use_container_width=True
-    key="factory_location_map"
 )
 
 
@@ -854,7 +853,7 @@ f2.metric(
 
 st.subheader("Interactive Factory Location Map")
 
-fig_factory = px.scatter_mapbox(
+fig_factory = px.scatter_map(
     factory_data,
     lat="Latitude",
     lon="Longitude",
@@ -869,7 +868,7 @@ fig_factory = px.scatter_mapbox(
 )
 
 fig_factory.update_layout(
-    mapbox_style="open-street-map",
+    map_style="open-street-map",
     margin={
         "r": 0,
         "t": 50,
@@ -880,7 +879,7 @@ fig_factory.update_layout(
 
 st.plotly_chart(
     fig_factory,
-    use_container_width=True
+    use_container_width=True,
     key="factory_location_map"
 )
 
