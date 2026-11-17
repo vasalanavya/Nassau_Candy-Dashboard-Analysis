@@ -851,9 +851,11 @@ f2.metric(
 
 # Display interactive map
 
+
+# Display interactive factory map
 st.subheader("Interactive Factory Location Map")
 
-fig_factory = px.scatter_mapbox(
+fig_factory = px.scatter_map(
     factory_data,
     lat="Latitude",
     lon="Longitude",
@@ -864,11 +866,11 @@ fig_factory = px.scatter_mapbox(
     },
     zoom=3.2,
     height=550,
-    title="Geographical Distribution of Factories"
+    title="Geographical Distribution of Factories",
+    map_style="open-street-map"
 )
 
 fig_factory.update_layout(
-    mapbox_style="open-street-map",
     margin={
         "r": 0,
         "t": 50,
@@ -876,6 +878,13 @@ fig_factory.update_layout(
         "b": 0
     }
 )
+
+st.plotly_chart(
+    fig_factory,
+    use_container_width=True
+)
+
+
 
 st.plotly_chart(
     fig_factory,
